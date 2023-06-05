@@ -15,8 +15,8 @@ class Activities(models.Model):
     DONE_STATE = 'D'
 
     ACTIVITY_STATE = [
-        (PENDING_STATE, 'Pending')
-        (DONE_STATE, 'Done'),
+        (PENDING_STATE, 'Pending'),
+        (DONE_STATE, 'Done')
     ]
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
