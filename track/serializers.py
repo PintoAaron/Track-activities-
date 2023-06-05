@@ -25,10 +25,15 @@ class ActivitySerializer(serializers.ModelSerializer):
          
          
 class RemarksSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        activity_id = self.context['activity_id']
+        commenter = Member.objects.get(user_id = self.context['user_id'])
+        return Remark.objects.create(commenter_id = commenter.id, activity_id = activity_id, **validated_data)
     
     id = serializers.IntegerField(read_only = True)
     activity_id = serializers.IntegerField(read_only = True)
     commenter_id = serializers.IntegerField(read_only = True)
+    date_created = serializers.DateTimeField(read_only = True)
     class Meta:
         model = Remark
         fields = ['id','activity_id','comment','commenter_id','date_created']

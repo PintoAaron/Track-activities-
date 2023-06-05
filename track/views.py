@@ -23,4 +23,16 @@ class ActivityViewSet(ModelViewSet):
     
 
 
+class RemarksViewSet(ModelViewSet):
+    serializer_class = RemarksSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_queryset(self):
+       return Remark.objects.filter(activity_id = self.kwargs['activity_pk'])
+   
+    def get_serializer_context(self):
+        return {'activity_id':self.kwargs['activity_pk'], 'user_id':self.request.user.id}
+    
+
+
     
