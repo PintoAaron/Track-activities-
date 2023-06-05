@@ -12,11 +12,16 @@ class MemberSerializer(serializers.ModelSerializer):
 
 class ActivitySerializer(serializers.ModelSerializer):
     
+    def create(self, validated_data):
+        poster = Member.objects.get(user_id = self.context['user_id'])
+        return Activity.objects.create(poster_id = poster.id, **validated_data)
+    
     id = serializers.IntegerField(read_only=True)
     timestamp = serializers.DateTimeField(read_only = True)
+    poster_id = serializers.IntegerField(read_only = True)
     class Meta:
          model = Activity
-         fields = ['id','title','description','status','poster','timestamp']
+         fields = ['id','title','description','status','poster_id','timestamp']
          
          
 class RemarksSerializer(serializers.ModelSerializer):

@@ -1,11 +1,11 @@
 
 from django.urls import path,include
 from rest_framework_nested import routers
-from .import views
-
+from .views import ActivityViewSet,MemberViewSet
 
 router = routers.DefaultRouter()
-router.register('members',views.MemeberViewset)
+router.register('members',MemberViewSet)
+router.register('activities',ActivityViewSet)
 
 
 
