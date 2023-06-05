@@ -7,7 +7,7 @@ class MemberSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only = True)
     class Meta:
         model = Member
-        field = ['id','bio']
+        fields = ['id','user_id','first_name','last_name','bio']
         
 
 class ActivitySerializer(serializers.ModelSerializer):

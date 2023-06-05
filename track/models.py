@@ -33,6 +33,10 @@ class Activity(models.Model):
     poster = models.ForeignKey(Member, on_delete=models.PROTECT, related_name='activities')
     timestamp = models.DateTimeField(auto_now_add=True)
     
+    def __str__(self) -> str:
+        return f"{self.title}"
+    
+    
 class Remark(models.Model):
     commenter = models.ForeignKey(Member, on_delete=models.PROTECT,related_name='remarks')
     activity = models.ForeignKey(Activity, on_delete=models.PROTECT, related_name='remarks')

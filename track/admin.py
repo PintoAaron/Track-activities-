@@ -16,5 +16,5 @@ class ActivityAdmin(admin.ModelAdmin):
     
 @admin.register(Remark)
 class RemarkAdmin(admin.ModelAdmin):
-    list_display = ['id','comment','activity','commentor','date_created']
-    list_select_related = ['activity','commentor']
+    list_display = ['id','comment','activity','commenter','date_created']
+    list_select_related = ['activity','commenter']
