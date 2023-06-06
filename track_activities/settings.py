@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^wua5vaqu9+$lwual#_!cqlx75qc1vaibq(153fx@1u0f8hgd6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tracksystem-prod.herokuapp.com']
 
 
 # Application definition
@@ -150,16 +150,14 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-   'AUTH_HEADER_TYPES': ('JWT',),
-   'ACCESS_TOKEN_LIFETIME':timedelta(days=1),
+    'AUTH_HEADER_TYPES': ('JWT',),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
 }
 
 
-
-
-DJOSER ={
+DJOSER = {
     'SERIALIZERS': {
-        'user_create':'core.serializers.UserCreateSerializer',
-        'current_user':'core.serializers.UserSerializer'}
-    
+        'user_create': 'core.serializers.UserCreateSerializer',
+        'current_user': 'core.serializers.UserSerializer'}
+
 }
