@@ -14,19 +14,18 @@ from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^wua5vaqu9+$lwual#_!cqlx75qc1vaibq(153fx@1u0f8hgd6'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['tracksystem-prod.herokuapp.com']
+
 
 
 # Application definition
@@ -86,16 +85,6 @@ WSGI_APPLICATION = 'track_activities.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'track_activities',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': 'macquena'
-
-    }
-}
 
 
 AUTH_USER_MODEL = 'core.User'
